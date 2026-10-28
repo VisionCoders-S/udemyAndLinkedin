@@ -8,6 +8,7 @@ let teacher = document.getElementById("teacher");
 let instruct = "Instructors";
 let form = document.getElementById("form");
 let container = document.querySelector(".container");
+let certificate = document.getElementById("certificate");
 
 let certificate_no = "UC-3308c41b-93cb-485a-9ee3-450729f8ef73";
 
@@ -62,7 +63,6 @@ generate.addEventListener("click", (e) => {
     container.style.backgroundColor = "white";
     container.style.height = "auto";
 
-    let certificate = document.getElementById("certificate");
     certificate.style.backgroundColor = "#f8f9fb";
     certificate.style.display = "flex";
     certificate.innerHTML = `<div class="logo">
@@ -93,11 +93,19 @@ generate.addEventListener("click", (e) => {
 let download = document.getElementById("download");
 download.addEventListener("click", () => {
   var opt = {
-    margin: 1,
+    margin: 0,
     filename: `Udemy-certificate.pdf`,
     image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: "px", format: "c2", orientation: "landscape" },
+    html2canvas: {
+      scale: 2,
+      windowWidth: certificate.scrollWidth,
+      windowHeight: certificate.scrollHeight,
+    },
+    jsPDF: {
+      unit: "px",
+      format: [certificate.offsetWidth, certificate.offsetHeight],
+      orientation: "landscape",
+    },
   };
 
   html2pdf().set(opt).from(certificate).save();
