@@ -93,12 +93,12 @@ generate.addEventListener("click", (e) => {
 let download = document.getElementById("download");
 download.addEventListener("click", () => {
   var opt = {
-    margin: 0,
+    margin: 20,
     filename: `Udemy-certificate.pdf`,
-    image: { type: "jpeg", quality: 0.98 },
+    image: { type: "png", quality: 1 },
     html2canvas: {
-      scale: 2,
-      windowWidth: certificate.scrollWidth,
+      scale: 1,
+      windowWidth: certificate.scrollWidth + 20,
       windowHeight: certificate.scrollHeight,
       scrollX: 0,
       scrollY: 0,
