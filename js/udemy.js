@@ -100,6 +100,8 @@ download.addEventListener("click", () => {
       scale: 2,
       windowWidth: certificate.scrollWidth,
       windowHeight: certificate.scrollHeight,
+      scrollX: 0,
+      scrollY: 0,
     },
     jsPDF: {
       unit: "px",
